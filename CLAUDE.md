@@ -13,15 +13,15 @@ Group readings naturally rather than per character.
 For the title, ruby only the kanji that need it.
 4. Compile only the new song by passing its directory as the make target.
 Do not run a bare `make` since that rebuilds every song in the project.
+Especially, never run a `make clean` command since it will cleanup all songs in the project while you are often only working on one song.
 
    ```sh
    make src/<artist>/<song-title>
    ```
 
 5. Verify the output PDF at `out/<artist>/<song-title>.pdf` fits on one page.
-Only if it overflows, compact within paragraphs (e.g., merge short related lines or drop redundant blank lines) until it fits.
-Do not preemptively merge lines when the source already fits.
-Paragraph breaks should almost never be merged, since they reflect the music's structure.
+Only if it overflows, compact within paragraphs, i.e., merge short related lines or drop redundant blank lines.
+Beware that each line have a relatively tight maxlength due to the layout. So, if in-paragraph merge don't work since merged lines wrap, compact between paragraphs by merging paragraphs into one.
 
 ## Template
 
